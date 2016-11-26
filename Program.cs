@@ -47,7 +47,7 @@ namespace BangazonProductRevenueReports
                             cs.CommandText = "SELECT * FROM Revenue";
                             cs.Connection.Open();
                             reader = cs.ExecuteReader();
-                            //var proDict = new Dictionary<string, int>();
+                            // var proDict = new Dictionary<string, int>();
                             while (reader.Read())
                             {
                                 var i = reader[1];
