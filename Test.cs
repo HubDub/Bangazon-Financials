@@ -28,20 +28,27 @@ namespace BangazonFinancialTests
         {
             SalesFactory salesFactory = SalesFactory.Instance;
 
-            List<Sale> ListOfSales = salesFactory.GetAllSales();
+            List<Sale> ListOfSales = salesFactory.GetAllSalesByDate();
             Assert.Equal(ListOfSales.Count, 1000);
         }
 
         [Fact]
-        public void TestCanPullSalesFromDBBetweenTwoDates()
+        public void TestCanSumRevenuePerCustomer()
+        {
+            
+            SalesFactory salesFactory = SalesFactory.Instance;
+            List<Sale> ListOfRevenueByCustomer = salesFactory.GetAllSalesByCustomer();
+
+            Assert.Equal(ListOfRevenueByCustomer.Count, 16);
+        }
+
+        [Fact]
+        public void TestCanSumRevenuePerProduct()
         {
             SalesFactory salesFactory = SalesFactory.Instance;
+            List<Sale> ListOfRevenueByProduct = salesFactory.GetAllSalesByCustomer();
 
-            String FirstDate = "2016/11/03";
-            String SecondDate = "2016/11/04";
-
-            List<Sale> ListOfSalesByWeek = salesFactory.GetLastWeekSales(FirstDate,  SecondDate);
-            Assert.Equal(ListOfSalesByWeek.Count, 0);
+            Assert.Equal(ListOfRevenueByProduct.Count, 16);
         }
     }
 }

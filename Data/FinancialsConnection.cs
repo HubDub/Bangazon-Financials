@@ -9,6 +9,11 @@ namespace BangazonProductRevenueReports.Data
 
         public void execute(string query, Action<SqliteDataReader> handler)
         {
+            //Comment out these two lines for speed purposes after the initial db creation 
+            //Uncomment them and run to generate fresh data
+            // DatabaseGenerator gen = new DatabaseGenerator();
+            // gen.CreateDatabase();
+            
             SqliteConnection databaseConnection = new SqliteConnection(_connectionString);
             databaseConnection.Open();
             SqliteCommand databaseCommand = databaseConnection.CreateCommand();

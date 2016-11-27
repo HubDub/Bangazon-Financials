@@ -67,7 +67,7 @@ namespace BangazonProductRevenueReports
                                 "[CustomerLastName] TEXT NOT NULL, " +
                                 "[CustomerAddress] TEXT NOT NULL, " +
                                 "[CustomerZipCode] INTEGER NOT NULL, " +
-                                "[PurchaseDate] TEXT NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%S')) " +
+                                "[PurchaseDate] TEXT NOT NULL DEFAULT (strftime('%YYYY-%MM-%DD %H:%M:%S')) " +
                             "); "
                             + RandomizeCustomerProducts(1000);
 
