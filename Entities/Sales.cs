@@ -2,6 +2,10 @@ using System;
 
 namespace BangazonProductRevenueReports
 {
+    //Class Name: Sale
+    //Author: Debbie Bourne
+    //Purpose of this class: to create a Sale entity with properties 
+    //Methods in Class: N/A
     public class Sale
     {
         public int Id {get; set;}

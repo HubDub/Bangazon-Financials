@@ -3,6 +3,10 @@ using Microsoft.Data.Sqlite;
 
 namespace BangazonProductRevenueReports
 {
+    //Class Name: DatabaseGenerator
+    //Author: Debbie Bourne
+    //Purpose of this class: to generate new random database if none exists 
+    //Methods in Class: RandomizeCustomerProducts(), RandomizeCustomerProducts(args), CreateDatabase()
     public class DatabaseGenerator
     {
         Random rnd = new Random();
@@ -16,6 +20,9 @@ namespace BangazonProductRevenueReports
         string[] customerAddressStreet = new[] { "Mallory Lane", "Carothers Pkwy", "Claybrook Lane", "Bending Creek Drive", "Old Hickory Blvd", "Harris Ave", "21st Ave N", "Plus Park Blvd", "Interstate Blvd S", "Whitney Ave", "Bell Rd", "Harding Pky", "Nolesville Road", "Charlotte Ave" };
         int[] customerZipcode = new int[] { 37013, 37072, 38461, 37115, 37116, 37201, 37211, 37216, 37222 };
         string[] supplierState = new string[] { "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HA", "ID", "IL", "IN", "IA", "KA", "KY", "LA", "ME", "MD", "MS", "MC", "MN", "MI", "MO", "MT", "NB", "NV", "NH", "NJ", "NC", "NY", "NM", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "WA", "WV", "WI", "WY" };
+
+        //Method Name: RandomizeCustomerProducts()
+        //Purpose of Method: creates random number based on length of array, chooses data in that location of array, and creates query to enter that random data into database
         public string RandomizeCustomerProducts()
         {
             var rnd1 = rnd.Next(customers.Length);
@@ -41,12 +48,14 @@ namespace BangazonProductRevenueReports
                 '{customersLastName[rnd2]}', 
                 '{customerAddressNumbers[rnd4]} {customerAddressStreet[rnd5]}', 
                 {customerZipcode[rnd6]}, 
-                '{start.AddDays(rnd.Next(range))}'
+                '{start.AddDays(rnd.Next(range)).ToString("yyyy-MM-dd HH\\:mm\\:ss")}'
             );";
 
             return command;
         }
 
+        //Method Name: GetAllSalesByCustomer(numOfEntries)
+        //Purpose of Method: returns the string that calls RandomizeCustomerProducts method
         public string RandomizeCustomerProducts(int numOfEntries)
         {
             string returnstring = "";
@@ -54,6 +63,8 @@ namespace BangazonProductRevenueReports
             return returnstring;
         }
 
+        //Method Name: CreateDatabase()
+        //Purpose of Method: Creates tables and environmental variable for DB
         public void CreateDatabase()
         {
 
