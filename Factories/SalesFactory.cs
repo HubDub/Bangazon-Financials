@@ -23,36 +23,6 @@ namespace BangazonProductRevenueReports.Factories
             }
         }
 
-        //Method Name: GetOneSale()
-        //Purpose of Method: pulls first row from database and sends it back to where it was called
-        public Sale GetOneSale()
-        {
-            FinancialsConnection connection = new FinancialsConnection();
-            Sale oneOrder = null; 
-            connection.execute($"SELECT Id, ProductName, ProductCost, ProductRevenue, ProductSupplierState, CustomerFirstName, CustomerLastName, CustomerAddress, CustomerZipCode, PurchaseDate FROM Revenue LIMIT 1",
-                (SqliteDataReader reader) =>
-                {
-                    while (reader.Read())
-                    {
-                        oneOrder = new Sale
-                        {
-                        Id = reader.GetInt32(0),
-                        ProductName = reader[1].ToString(),
-                        ProductCost = reader.GetInt32(2),
-                        ProductRevenue = reader.GetInt32(3),
-                        ProductSupplierState = reader[4].ToString(),
-                        CustomerFirstName = reader[5].ToString(),
-                        CustomerLastName = reader[6].ToString(),
-                        CustomerAddress = reader[7].ToString(),
-                        CustomerZipCode = reader[8].ToString(),
-                        PurchaseDate = reader.GetDateTime(9),
-                        };
-                    }
-                    reader.Dispose();
-                });
-            return oneOrder;
-        }
-
         //Method Name: GetAllSalesByDate()
         //Purpose of Method: pulls all sales from database and sends list back to where it was called
         public List<Sale> GetAllSalesByDate()

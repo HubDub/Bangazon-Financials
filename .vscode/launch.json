@@ -6,10 +6,10 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/BangazonProductRevenueReports.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/Bangazon-Financials.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
-            "externalConsole": false,
+            "externalConsole": true,  //changed this from false to true to try to get debugging working
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"
         },
