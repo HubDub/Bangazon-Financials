@@ -81,7 +81,7 @@ namespace BangazonFinancialTests
             SalesFactory salesFactory = SalesFactory.Instance;
             List<Sale> ListOfRevenueByCustomer = salesFactory.GetAllSalesByCustomer();
 
-            Assert.NotEqual(ListOfRevenueByCustomer.Count, 16);
+            Assert.Equal(ListOfRevenueByCustomer.Count, 16);
         }
 
         //Method Name: TestCanSumRevenuePerProduct()
